@@ -9,3 +9,6 @@ class PlPy(object):
         if dsn is None:
             dsn = ''
         self.dsb = dsn
+
+    def notice(self, message):
+        self.logger.info(message)
