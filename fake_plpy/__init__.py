@@ -1,4 +1,5 @@
 import logging
+import psycopg2
 
 class PlPy(object):
 
@@ -8,7 +9,16 @@ class PlPy(object):
         self.logger = logger
         if dsn is None:
             dsn = ''
-        self.dsb = dsn
+        self.dsn = dsn
+        self.db = psycopg2.connect(dsn=self.dsn)
+        self.cursor = self.db.cursor()
 
     def notice(self, message):
         self.logger.info(message)
+
+
+    def execute(self, *args, **kwargs):
+        return self.cursor.execute(*args, **kwargs)
+
+    def prepare(self, *args, **kwargs):
+        return self.cursor.prepare(*args, **kwargs)

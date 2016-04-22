@@ -35,5 +35,5 @@ setup(
     description='Fake plpy',
     url='https://github.com/viatoriche/fake_plpy',
     download_url='https://github.com/viatoriche/fake_plpy/tarball/{}'.format(version),
-    install_requires=['psycopg2'],
+    install_requires=['psycopg2', 'sqlalchemy'],
 )
